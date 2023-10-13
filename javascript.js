@@ -30,6 +30,21 @@ function generateString(length) {
   
 }
 
+let btn = document.getElementById("button")
+btn.addEventListener("click", skore) 
+
+function skore(){
+    score = 0
+
+    scoreX = 0
+
+    vedle = 0
+
+
+document.getElementById("p").innerHTML = "0"
+document.getElementById("v").innerHTML = "0"
+document.getElementById("x").innerHTML = "0"
+}
 
 
 console.log(generateString());
@@ -117,8 +132,7 @@ function changeColor(index) {
 
     buttons[index].style.backgroundColor = "white"
 }
-
-
+ 
 
 
 
@@ -141,6 +155,8 @@ function changeColor(index) {
     setInterval(stop,31000)
     
 
+
+
     function stop(){
 
         for (let x = 0;x<9;x++){
@@ -148,26 +164,24 @@ function changeColor(index) {
         }
     
         clearInterval(interval);
-        finalScore = lastScore
+      
          finalScore = score
+         lastScore = finalScore
      if(finalScore > bestScore){
         bestScore = finalScore
      }
      localStorage.setItem("bestScore", bestScore);
-     score = 0 
-     vedle = 0
-     scoreX = 0
      localStorage.setItem("lastScore", lastScore);
+
      document.getElementById("l").innerHTML = lastScore
     document.getElementById("p").innerHTML = score
     document.getElementById("s").innerHTML = bestScore
       
+  
+
+
     }
 
     function buttonC(){
         location.reload();
     }
-    
-    /*function buttonS(){
-        clearInterval(interval);
-    }*/
